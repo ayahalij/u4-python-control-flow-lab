@@ -123,3 +123,43 @@ def determine_season():
         print("Invalid input. Please enter a valid number for the day.")
 
 determine_season()
+
+
+
+# Exercise 6: Number Guessing Game
+def guess_number():
+    target_num =42
+    tryes = 5
+
+    print("Guess a number between 1 and 100. You have 5 tries.")
+    for attempt in range(1, tryes + 1):
+
+        try:
+            guess = int(input(f'Attempt {attempt}: Enter your guess: '))
+            if guess < 1 or guess > 100:
+                print("Please guess a number within the range of 1 to 100.")
+                continue
+
+            if guess == target_num:
+                print("Congratulations, you guessed correctly!")
+                break
+            
+            elif guess < target_num:
+                if attempt == tryes:
+                    print("Last chance! Your guess is too low.")
+                else:
+                    print("Your guess is too low.")
+            
+            elif guess > target_num:
+                if attempt == tryes:
+                    print("Last chance! Your guess is too high.")
+                else:
+                    print("Your guess is too high.")
+
+            if attempt == tryes:
+                print("Sorry, you failed to guess the number in five attempts.")
+
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+
+guess_number()
